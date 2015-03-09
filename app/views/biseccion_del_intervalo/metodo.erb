@@ -1,0 +1,60 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+
+    <label><h2>Ecuación:</h2></label>
+
+
+    <%= form_tag(generar_biseccion_del_intervalo_path, :method=>'get') do %>
+
+      <p class="ecuacion"><%= number_field_tag :cuatro, params[:cuatro] %><strong> x^4 + </strong><%= number_field_tag :tres, params[:tres] %><strong> x^3 + </strong><%= number_field_tag :dos, params[:dos] %><strong> x^2 + </strong><%= number_field_tag :uno, params[:uno] %><strong> x + </strong><%= number_field_tag :consta, params[:consta] %>
+
+      <p>
+        Limite a:<br />
+        <%= number_field_tag :a, params[:a] %>
+      </p>
+
+      <p>
+        Limite b:<br />
+        <%= number_field_tag :b, params[:b] %>
+      </p>
+
+      <p>
+         <%= submit_tag 'Generar' %>
+      </p>
+    <% end %>
+
+    <% if @table %>
+        <table class="table table-bordered table-hover table-striped table-datos">
+        <% @table.each_with_index do |row, index| %>
+              <% if index == 0 %>
+                <thead>
+                    <tr>
+                        <% row.each do |data| %>
+                            <th><%= data %></th>
+                        <% end %>
+                    </tr>
+                </thead>
+              <% else %>
+                <% if index == 1  %>
+                  <tbody>
+                <% end %>
+                  <tr>
+                    <% row.each do |data| %>
+                        <td><%= data %></td>
+                    <% end %>
+                  </tr>
+                <% if index == @table.size - 1 %>
+                  </tbody>
+                <% end %>
+              <% end %>
+        <% end %>
+        </table>
+    <% end %>
+
+    <blockquote class="result">
+      <p><%= @result %></p>
+    </blockquote>
+</div>

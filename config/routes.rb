@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'biseccion_del_intervalo/metodo'
+  get 'biseccion_del_intervalo/index'
+
+  get 'biseccion_del_intervalo/generar' => 'biseccion_del_intervalo#generar', as: :generar_biseccion_del_intervalo
+
   get 'descripcion/index'
 
   root 'inicio#index'
