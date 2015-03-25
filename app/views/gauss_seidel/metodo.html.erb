@@ -1,0 +1,15 @@
+<div class="container">
+    <label><h2>Matriz:</h2></label>
+
+
+    <%= form_tag(generar_gauss_seidel_path, :method=>'get') do %>
+
+        <p class="ecuacion"><%= number_field_tag :x1, params[:x1] %><strong>X + </strong><%= number_field_tag :y1, params[:y1] %><strong>Y + </strong><%= number_field_tag :z1, params[:z1] %><strong>Z = </strong><%= number_field_tag :c1, params[:c1] %><strong></p>
+        <p class="ecuacion"><%= number_field_tag :x2, params[:x2] %><strong>X + </strong><%= number_field_tag :y2, params[:y2] %><strong>Y + </strong><%= number_field_tag :z2, params[:z2] %><strong>Z = </strong><%= number_field_tag :c2, params[:c2] %><strong></p>
+        <p class="ecuacion"><%= number_field_tag :x3, params[:x3] %><strong>X + </strong><%= number_field_tag :y3, params[:y3] %><strong>Y + </strong><%= number_field_tag :z3, params[:z3] %><strong>Z = </strong><%= number_field_tag :c3, params[:c3] %><strong></p>
+
+        <p>
+          <%= submit_tag 'Generar' %>
+        </p>
+    <% end %>
+</div>

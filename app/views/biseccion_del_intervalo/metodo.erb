@@ -3,13 +3,12 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 
-
-    <label><h2>Ecuación:</h2></label>
+  <label><h2>Ecuación:</h2></label>
 
 
     <%= form_tag(generar_biseccion_del_intervalo_path, :method=>'get') do %>
 
-      <p class="ecuacion"><%= number_field_tag :cuatro, params[:cuatro] %><strong> x^4 + </strong><%= number_field_tag :tres, params[:tres] %><strong> x^3 + </strong><%= number_field_tag :dos, params[:dos] %><strong> x^2 + </strong><%= number_field_tag :uno, params[:uno] %><strong> x + </strong><%= number_field_tag :consta, params[:consta] %>
+      <p class="ecuacion"><%= number_field_tag :cuatro, params[:cuatro] %><strong> X^4 + </strong><%= number_field_tag :tres, params[:tres] %><strong> X^3 + </strong><%= number_field_tag :dos, params[:dos] %><strong> X^2 + </strong><%= number_field_tag :uno, params[:uno] %><strong> X + </strong><%= number_field_tag :consta, params[:consta] %></p>
 
       <p>
         Limite a:<br />

@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'gauss_seidel/index'
+
+  get 'gauss_seidel/metodo'
+
+  get 'gauss_seidel/generar'
+
   get 'biseccion_del_intervalo/metodo'
   get 'biseccion_del_intervalo/index'
 
   get 'biseccion_del_intervalo/generar' => 'biseccion_del_intervalo#generar', as: :generar_biseccion_del_intervalo
+  get 'gauss_seidel/generar' => 'gauss_seidel#generar', as: :generar_gauss_seidel
 
   get 'descripcion/index'
 

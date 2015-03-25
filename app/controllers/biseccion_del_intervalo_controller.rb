@@ -6,11 +6,11 @@ class BiseccionDelIntervaloController < ApplicationController
   end
 
   def generar
-    #@table = { :id=>iter, :limite_a=>limite_a, :limite_b=>limite_b, :limite_c=>limite_c, :raiz=>raizx, :funcion=>fx, :tolerancia=>tol}
+
     @table = [['# Iteraciones', 'a', 'b', 'c', 'x', 'f(x)', 'Tol']]
 
     cont = 1
-    tol=0.01
+    tol = 0.01
 
     cuatro = params[:cuatro].to_f
     tres = params[:tres].to_f
@@ -26,7 +26,6 @@ class BiseccionDelIntervaloController < ApplicationController
     if (fxa > 0 && fxb>0) || (fxa<0 && fxb<0)
         flash[:danger] = 'No tienen raices diferentes, no se puede calcular.'
     else
-
       @table << [cont]
       @table.last << a.round(3)
       @table.last << b.round(3)
@@ -34,7 +33,7 @@ class BiseccionDelIntervaloController < ApplicationController
       x = (a + c)
       @table.last << c.round(3)
       @table.last << x.round(3)
-      fx = ((cuatro * (x**4)) + (tres * (x**3)) + (dos * (x**2)) + (uno * x) + consta)
+      fx = (cuatro * (x**4)) + (tres * (x**3)) + (dos * (x**2)) + (uno * x) + consta
       @table.last << fx
       @table.last << (tol > c ? '✔' : '✘')
       fx > 0 ? (b = x) : (a = x)
@@ -47,7 +46,7 @@ class BiseccionDelIntervaloController < ApplicationController
         x = (a + c)
         @table.last << c.round(3)
         @table.last << x.round(3)
-        fx = ((cuatro * (x**4)) + (tres * (x**3)) + (dos * (x**2)) + (uno * x) + consta)
+        fx = (cuatro * (x**4)) + (tres * (x**3)) + (dos * (x**2)) + (uno * x) + consta
         @table.last << fx.round(3)
         @table.last << (tol > c ? '✔' : '✘')
         fx > 0 ? (b = x) : (a = x)
